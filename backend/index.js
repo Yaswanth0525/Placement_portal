@@ -18,12 +18,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// CORS Configuration
-// const corsOptions = {
-//   origin: ["http://localhost:5173" ], // Frontend origin
-//   credentials: true,               // Allow cookies and credentials
-// };
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173", // for local dev
+  "https://placement-portal-1-i73t.onrender.com" // your deployed frontend
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 
 // Routes
 app.use("/api/v1/user", userRoute);
