@@ -19,11 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // CORS Configuration
-const corsOptions = {
-  origin: ["http://localhost:5173" ,"https://campusyatra.vercel.app"], // Frontend origin
-  credentials: true,               // Allow cookies and credentials
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: ["http://localhost:5173" ], // Frontend origin
+//   credentials: true,               // Allow cookies and credentials
+// };
+app.use(cors());
 
 // Routes
 app.use("/api/v1/user", userRoute);
