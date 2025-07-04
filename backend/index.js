@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // CORS Configuration
 const corsOptions = {
-  origin: "http://localhost:5173", // Frontend origin
+  origin: ["http://localhost:5173 ,https://campusyatra.vercel.app"], // Frontend origin
   credentials: true,               // Allow cookies and credentials
 };
 app.use(cors(corsOptions));
