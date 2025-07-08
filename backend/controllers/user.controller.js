@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 // --- REGISTER ---
 export const register = async (req, res) => {
@@ -230,7 +232,8 @@ export const forgotPassword = async (req, res) => {
     user.resetTokenExpiry = resetTokenExpiry;
     await user.save();
 
-    const resetLink = `https://placement-portal-kfkf.onrender.com/reset-password/${resetToken}`;
+
+    const resetLink = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
     return res.status(200).json({
       success: true,
