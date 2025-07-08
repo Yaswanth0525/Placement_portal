@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { toast } from "sonner";
 import Navbar from "../shared/Navbar";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../utils/constant";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const ForgotPassword = () => {
     if (!email) return toast.error("Please enter your email");
 
     try {
-      const res = await axios.post("https://placement-portal-kfkf.onrender.com/api/v1/user/forgot-password", {
+      const res = await axios.post(`${ API_BASE_URL}/api/v1/user/forgot-password`, {
         email,
       });
 

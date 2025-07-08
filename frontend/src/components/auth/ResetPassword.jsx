@@ -24,7 +24,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const res = await axios.post(`https://placement-portal-kfkf.onrender.com/api/v1/user/reset-password/${token}`, {
+      const res = await axios.post(`${ API_BASE_URL}/api/v1/user/reset-password/${token}`, {
         password,
       });
 
