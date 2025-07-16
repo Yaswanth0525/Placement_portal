@@ -16,6 +16,7 @@ const useGetAllJobs = () => {
                 }
             } catch (error) {
                 console.log(error);
+                console.log("The error in the useGetAllJobs");
             }
         }
         fetchAllJobs();

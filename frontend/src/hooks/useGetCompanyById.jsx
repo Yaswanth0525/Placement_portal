@@ -17,6 +17,7 @@ const useGetCompanyById = (companyId) => {
                 }
             } catch (error) {
                 console.log(error);
+                console.log("The error in the useGetCompanyById");
             }
         }
         fetchSingleCompany();

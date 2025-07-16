@@ -16,6 +16,7 @@ const useGetAllCompanies = () => {
                 }
             } catch (error) {
                 console.log(error);
+                console.log("The error in the useGetAllCompanies");
             }
         }
         fetchCompanies();

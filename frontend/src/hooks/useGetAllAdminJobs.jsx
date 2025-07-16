@@ -15,6 +15,7 @@ const useGetAllAdminJobs = () => {
                 }
             } catch (error) {
                 console.log(error);
+                console.log("The error in the useGetAllAdminJobs");
             }
         }
         fetchAllAdminJobs();
