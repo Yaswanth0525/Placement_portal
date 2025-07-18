@@ -151,10 +151,11 @@ export const login = async (req, res) => {
 // --- LOGOUT ---
 export const logout = async (req, res) => {
   try {
-    return res.clearCookie("token", {
+    return res
+      .clearCookie("token", {
         httpOnly: true,
-        secure: true,
-        sameSite: "None",
+        secure: true, // set to false in local dev (HTTP), true in production (HTTPS)
+        sameSite: "None", // or "Lax"/"Strict" based on your login cookie settings
       })
       .status(200)
       .json({
